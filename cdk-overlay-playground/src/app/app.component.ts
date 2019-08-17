@@ -1,11 +1,11 @@
 import {
     ChangeDetectionStrategy,
-    Component, ComponentRef,
+    Component,
+    ComponentRef,
     ElementRef,
     OnDestroy,
     OnInit,
-    ViewChild,
-    ViewContainerRef
+    ViewChild
 } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Subject} from "rxjs";
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     @ViewChild('tooltipHostElement', {read: ElementRef, static: true}) tooltipHostElement: ElementRef<HTMLElement>;
 
-    constructor(private viewContainerRef: ViewContainerRef, private overlay: Overlay) {
+    constructor(private overlay: Overlay) {
     }
 
     ngOnInit(): void {
@@ -69,7 +69,7 @@ export class AppComponent implements OnInit, OnDestroy {
             if (this.overlayRef) {
                 this.overlayRef.dispose();
             }
-            const componentPortal: ComponentPortal<TooltipComponent> = new ComponentPortal(TooltipComponent, this.viewContainerRef);
+            const componentPortal: ComponentPortal<TooltipComponent> = new ComponentPortal(TooltipComponent);
             const positions: ConnectedPosition[] = [{originX, originY, overlayX, overlayY}];
             const positionStrategy: PositionStrategy = this.overlay.position()
                 .flexibleConnectedTo(this.tooltipHostElement.nativeElement)
