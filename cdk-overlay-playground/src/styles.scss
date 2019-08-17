@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+/* The CDK overlays depend on a small set of structural styles to work correctly. If you're using Angular Material,
+these styles have been included together with the theme, otherwise if you're using the CDK on its own,
+you'll have to include the styles yourself.  */
+
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+html, body {
+  height: 100%;
+}

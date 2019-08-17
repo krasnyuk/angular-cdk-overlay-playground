@@ -1,0 +1,27 @@
+<form [formGroup]="form">
+    <label for="originX">originX:</label>
+    <select id="originX" formControlName="originX">
+        <option *ngFor="let option of xCoordinatesValues" [ngValue]="option">{{option}}</option>
+    </select>
+
+    <label for="originY">originY:</label>
+    <select id="originY" formControlName="originY">
+        <option *ngFor="let option of yCoordinatesValues" [ngValue]="option">{{option}}</option>
+    </select>
+
+    <label for="overlayX">overlayX:</label>
+    <select id="overlayX" formControlName="overlayX">
+        <option *ngFor="let option of xCoordinatesValues" [ngValue]="option">{{option}}</option>
+    </select>
+
+    <label for="overlayY">overlayY:</label>
+    <select id="overlayY" formControlName="overlayY">
+        <option *ngFor="let option of yCoordinatesValues" [ngValue]="option">{{option}}</option>
+    </select>
+</form>
+
+<div class="container">
+    <div #tooltipHostElement class="host-element">
+        Host element
+    </div>
+</div>
