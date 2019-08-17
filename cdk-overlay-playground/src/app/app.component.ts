@@ -45,6 +45,8 @@ export class AppComponent implements OnInit, OnDestroy {
             originY: new FormControl(''),
             overlayX: new FormControl(''),
             overlayY: new FormControl(''),
+            defaultOffsetX: new FormControl(''),
+            defaultOffsetY: new FormControl(''),
         });
     }
 
@@ -54,6 +56,8 @@ export class AppComponent implements OnInit, OnDestroy {
             originY: 'bottom',
             overlayX: 'start',
             overlayY: 'top',
+            defaultOffsetX: 0,
+            defaultOffsetY: 0,
         });
     }
 
@@ -61,7 +65,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.form.valueChanges.pipe(
             takeUntil(this.destroy$)
         ).subscribe((formValue: { [control: string]: any }) => {
-            const {originX, originY, overlayX, overlayY} = formValue;
+            const {originX, originY, overlayX, overlayY, defaultOffsetX, defaultOffsetY} = formValue;
             if (this.overlayRef) {
                 this.overlayRef.dispose();
             }
@@ -70,7 +74,9 @@ export class AppComponent implements OnInit, OnDestroy {
             const positionStrategy: PositionStrategy = this.overlay.position()
                 .flexibleConnectedTo(this.tooltipHostElement.nativeElement)
                 .withLockedPosition(true)
-                .withPositions(positions);
+                .withPositions(positions)
+                .withDefaultOffsetX(defaultOffsetX)
+                .withDefaultOffsetY(defaultOffsetY);
             const overlayConfig: OverlayConfig = new OverlayConfig({
                 positionStrategy,
                 maxWidth: '20vw',

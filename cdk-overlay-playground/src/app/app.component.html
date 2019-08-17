@@ -1,23 +1,45 @@
-<form [formGroup]="form">
-    <label for="originX">originX:</label>
-    <select id="originX" formControlName="originX">
-        <option *ngFor="let option of xCoordinatesValues" [ngValue]="option">{{option}}</option>
-    </select>
+<form [formGroup]="form" class="form-container">
+    <div class="form-container__group">
+        <label for="originX">originX:</label>
+        <select id="originX" formControlName="originX">
+            <option *ngFor="let option of xCoordinatesValues" [ngValue]="option">{{option}}</option>
+        </select>
+    </div>
 
-    <label for="originY">originY:</label>
-    <select id="originY" formControlName="originY">
-        <option *ngFor="let option of yCoordinatesValues" [ngValue]="option">{{option}}</option>
-    </select>
+    <div class="form-container__group">
+        <label for="originY">originY:</label>
+        <select id="originY" formControlName="originY">
+            <option *ngFor="let option of yCoordinatesValues" [ngValue]="option">{{option}}</option>
+        </select>
+    </div>
 
-    <label for="overlayX">overlayX:</label>
-    <select id="overlayX" formControlName="overlayX">
-        <option *ngFor="let option of xCoordinatesValues" [ngValue]="option">{{option}}</option>
-    </select>
+    <div class="form-container__group">
+        <label for="overlayX">overlayX:</label>
+        <select id="overlayX" formControlName="overlayX">
+            <option *ngFor="let option of xCoordinatesValues" [ngValue]="option">{{option}}</option>
+        </select>
+    </div>
 
-    <label for="overlayY">overlayY:</label>
-    <select id="overlayY" formControlName="overlayY">
-        <option *ngFor="let option of yCoordinatesValues" [ngValue]="option">{{option}}</option>
-    </select>
+
+    <div class="form-container__group">
+        <label for="overlayY">overlayY:</label>
+        <select id="overlayY" formControlName="overlayY">
+            <option *ngFor="let option of yCoordinatesValues" [ngValue]="option">{{option}}</option>
+        </select>
+    </div>
+
+
+    <div class="form-container__group">
+        <label for="defaultOffsetX">defaultOffsetX:</label>
+        <input id="defaultOffsetX" type="number" formControlName="defaultOffsetX">
+    </div>
+
+
+    <div class="form-container__group">
+        <label for="defaultOffsetY">defaultOffsetY:</label>
+        <input id="defaultOffsetY" type="number" formControlName="defaultOffsetY">
+    </div>
+
 </form>
 
 <div class="container">
